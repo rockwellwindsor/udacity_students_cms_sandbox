@@ -2,7 +2,7 @@
     "name": "CraftCMS",
     "description": "CraftCMS",
     "website": "https://craftcms.com/",
-    "repository": "https://github.com/dnunez24/craftcms-project-heroku",
+    "repository": "https://github.com/rockwellwindsor/udacity_students_cms_sandbox",
     "success_url": "/",
     "keywords": [
         "craftcms",

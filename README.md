@@ -11,7 +11,7 @@
 ## Getting Started
 
 ```bash
-git clone https://github.com/dnunez24/craftcms-project.git my-project
+git clone https://github.com/rockwellwindsor/udacity_students_cms_sandbox my-project
 cd my-project
 cp .env.example .env
 sed -i '' 's/craftcms/myproject/' .env
