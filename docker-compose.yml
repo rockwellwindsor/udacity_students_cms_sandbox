@@ -1,0 +1,74 @@
+version: '3.1'
+
+services:
+  http:
+    build:
+      context: .docker/http
+      args:
+        - COMPOSE_PROJECT_NAME
+    depends_on:
+      - app
+    env_file: .env
+    networks:
+      public:
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www/html
+
+  app:
+    build: .
+    depends_on:
+      - db
+      - redis
+    env_file: .env
+    networks:
+      public:
+      private:
+    volumes:
+      - .:/var/www/html
+
+  db:
+    env_file: .env
+    image: mariadb:10.1.19
+    networks:
+      private:
+    ports:
+      - "3306:3306"
+    volumes:
+      - db:/var/lib/mysql
+
+  redis:
+    command: ["redis-server", "--appendonly", "yes"]
+    env_file: .env
+    image: redis:3.2.9-alpine
+    networks:
+      private:
+    volumes:
+      - redis:/data
+
+  npm:
+    build:
+      context: .docker/npm
+    command: ["run", "watch"]
+    depends_on:
+      - http
+    links:
+      - http:${COMPOSE_PROJECT_NAME}.localhost
+    env_file: .env
+    networks:
+      public:
+      private:
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+    volumes:
+      - .:/usr/src/app
+
+networks:
+  public:
+  private:
+
+volumes:
+  db:
+  redis:

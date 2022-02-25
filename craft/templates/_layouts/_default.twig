@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="{{ craft.locale | default('en') }}">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="home" href="{{ siteUrl }}"/>
+        {% hook 'seomaticRender' %}
+        <link rel="stylesheet" href="{{ mix('styles/main.css') }}">
+        {{ getHeadHtml() }}
+    </head>
+    <body>
+        <!--[if lte IE 9]> <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p> <![endif]-->
+        <div id="container">
+            {% include '_partials/_header' %}
+
+            <main id="content" role="main">
+                {% block content %}{% endblock %}
+            </main>
+
+            {% include '_partials/_footer' %}
+        </div>
+    </body>
+</html>

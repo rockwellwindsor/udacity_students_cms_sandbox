@@ -1,0 +1,141 @@
+locales:
+  - en_us
+assetSources: {  }
+assetTransforms: {  }
+fields:
+  Default:
+    body:
+      name: Body
+      required: false
+      instructions: null
+      translatable: '1'
+      type: RichText
+      settings:
+        configFile: Standard.json
+        columnType: text
+      context: global
+    tags:
+      name: Tags
+      required: false
+      instructions: null
+      translatable: '0'
+      type: Tags
+      settings:
+        source: 'taggroup:default'
+      context: global
+globalSets: {  }
+plugins:
+  AmCommand:
+    isInstalled: true
+    isEnabled: true
+    settings:
+      theme: ''
+      elementSearchElementTypes:
+        Asset:
+          elementType: Asset
+          enabled: '1'
+        Category:
+          elementType: Category
+          enabled: '1'
+        Entry:
+          elementType: Entry
+          enabled: '1'
+        GlobalSet:
+          elementType: GlobalSet
+          enabled: '1'
+        MatrixBlock:
+          elementType: MatrixBlock
+          enabled: '1'
+        Seomatic_Meta:
+          elementType: Seomatic_Meta
+          enabled: '1'
+        Tag:
+          elementType: Tag
+          enabled: '1'
+        User:
+          elementType: User
+          enabled: '1'
+  Export:
+    isInstalled: true
+    isEnabled: true
+    settings: {  }
+  Import:
+    isInstalled: true
+    isEnabled: true
+    settings: {  }
+  LogHelper:
+    isInstalled: true
+    isEnabled: true
+    settings: {  }
+  Mix:
+    isInstalled: true
+    isEnabled: true
+    settings: {  }
+  Retour:
+    isInstalled: true
+    isEnabled: true
+    settings:
+      pluginNameOverride: null
+  Seomatic:
+    isInstalled: true
+    isEnabled: true
+    settings:
+      pluginNameOverride: null
+sections:
+  homepage:
+    name: Homepage
+    type: single
+    hasUrls: '1'
+    template: index
+    maxLevels: null
+    enableVersioning: '1'
+    locales:
+      en_us:
+        enabledByDefault: '1'
+        urlFormat: __home__
+        nestedUrlFormat: null
+    entryTypes:
+      homepage:
+        name: Homepage
+        hasTitleField: '1'
+        titleLabel: Title
+        titleFormat: null
+        fieldLayout:
+          tabs:
+            Content:
+              body: '1'
+  news:
+    name: News
+    type: channel
+    hasUrls: '1'
+    template: news/_entry
+    maxLevels: null
+    enableVersioning: '1'
+    locales:
+      en_us:
+        enabledByDefault: '1'
+        urlFormat: 'news/{postDate.year}/{slug}'
+        nestedUrlFormat: null
+    entryTypes:
+      news:
+        name: News
+        hasTitleField: '1'
+        titleLabel: Title
+        titleFormat: null
+        fieldLayout:
+          tabs:
+            Content:
+              body: '1'
+              tags: '0'
+userGroups: {  }
+users:
+  fieldLayout:
+    fields: {  }
+elementIndexSettings: {  }
+pluginData: {  }
+categoryGroups: {  }
+tagGroups:
+  default:
+    name: Default
+    fieldLayout:
+      fields: {  }

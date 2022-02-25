@@ -1,0 +1,16 @@
+.DS_Store
+.eslintcache
+/.env
+/bin
+/craft/assets
+/craft/config/license.key
+/craft/plugins
+hot
+node_modules/
+mix-manifest.json
+mix*.js*
+/public/fonts/
+/public/images/
+/public/scripts/
+/public/styles/
+vendor/

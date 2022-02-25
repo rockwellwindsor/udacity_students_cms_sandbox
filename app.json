@@ -1,0 +1,138 @@
+{
+    "name": "CraftCMS",
+    "description": "CraftCMS",
+    "website": "https://craftcms.com/",
+    "repository": "https://github.com/dnunez24/craftcms-project-heroku",
+    "success_url": "/",
+    "keywords": [
+        "craftcms",
+        "craft cms",
+        "craft",
+        "cms"
+    ],
+    "scripts": {
+        "postdeploy": "bin/schematic import --force"
+    },
+    "env": {
+        "CRAFT_USERNAME": {
+            "description": "Admin username",
+            "required": true
+        },
+        "CRAFT_EMAIL": {
+            "description": "Admin user email",
+            "required": true
+        },
+        "CRAFT_PASSWORD": {
+            "description": "Admin user password",
+            "required": true
+        },
+        "CRAFT_ENVIRONMENT": {
+            "description": "Set the name of the environment",
+            "required": true,
+            "value": "production"
+        },
+        "CRAFT_SITENAME": {
+            "description": "Human friendly name for the site",
+            "required": true
+        },
+        "CRAFT_SITEURL": {
+            "description": "Base URL for the website (must match Heroku app URL)",
+            "required": true
+        },
+        "CRAFT_LOCALE": {
+            "description": "Default locale for the admin panel",
+            "required": true,
+            "value": "en_US"
+        },
+        "CRAFT_APP_ID": {
+            "description": "Craft app ID used for cache, session, etc.",
+            "required": true,
+            "value": "craftcms"
+        },
+        "CRAFT_VALIDATION_KEY": {
+            "description": "",
+            "required": true,
+            "generator": "secret"
+        },
+        "CRAFT_APP_PATH": {
+            "description": "Path to Craft app directory",
+            "required": true,
+            "value": "/app/vendor/craftcms/cms/src/"
+        },
+        "CRAFT_BASE_PATH": {
+            "description": "Path to the Craft base directory",
+            "required": true,
+            "value": "/app/craft/"
+        },
+        "CRAFT_CONFIG_PATH": {
+            "description": "Path to Craft config files",
+            "required": true,
+            "value": "/app/craft/config/"
+        },
+        "CRAFT_FRAMEWORK_PATH": {
+            "description": "Path to Yii framework directory",
+            "required": true,
+            "value": "/app/vendor/yiisoft/yii/framework/"
+        },
+        "CRAFT_PLUGINS_PATH": {
+            "description": "Path to Craft plugins directory",
+            "required": true,
+            "value": "/app/craft/plugins/"
+        },
+        "CRAFT_STORAGE_PATH": {
+            "description": "Path to Craft storage directory",
+            "required": true,
+            "value": "/app/craft/storage/"
+        },
+        "CRAFT_TEMPLATES_PATH": {
+            "description": "Path to Craft templates directory",
+            "required": true,
+            "value": "/app/craft/templates/"
+        },
+        "CRAFT_TRANSLATIONS_PATH": {
+            "description": "Path to Craft translations directory",
+            "required": true,
+            "value": "/app/craft/translations/"
+        },
+        "CRAFT_VENDOR_PATH": {
+            "description": "Path to vendor directory",
+            "required": true,
+            "value": "/app/vendor/"
+        }
+    },
+    "formation": {
+        "web": {
+            "quantity": 1,
+            "size": "free"
+        }
+    },
+    "stack": "heroku-20",
+    "image": "heroku/php",
+    "addons": [{
+        "plan": "heroku-redis:hobby-dev"
+    }, {
+        "plan": "jawsdb-maria:kitefin"
+    }, {
+        "plan": "sendgrid:starter"
+    }, {
+        "plan": "newrelic:wayne"
+    }, {
+        "plan": "papertrail:choklad"
+    }],
+    "buildpacks": [{
+        "url": "heroku/php"
+    }, {
+        "url": "heroku/nodejs"
+    }],
+    "environments": {
+        "test": {
+            "buildpacks": [{
+                "url": "heroku/php"
+            }, {
+                "url": "heroku/nodejs"
+            }, {
+                "url": "https://github.com/heroku/heroku-buildpack-google-chrome"
+            }]
+        }
+    }
+}
